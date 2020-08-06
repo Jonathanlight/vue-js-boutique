@@ -1,9 +1,21 @@
 <template>
-  <div></div>
+  <div class="d-flex flex-row flex-wrap">
+    <ShopProductItem></ShopProductItem>
+    <ShopProductItem></ShopProductItem>
+    <ShopProductItem></ShopProductItem>
+    <ShopProductItem></ShopProductItem>
+    <ShopProductItem></ShopProductItem>
+  </div>
 </template>
 
 <script>
-export default {}
+import ShopProductItem from '../Shop/ShopProductItem.vue'
+
+export default {
+  components: {
+    ShopProductItem
+  }
+}
 </script>
 
 <style>

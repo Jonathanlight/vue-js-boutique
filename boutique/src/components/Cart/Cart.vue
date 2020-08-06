@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div class="border p-3 m-3">
+    Cart
+  </div>
 </template>
 
 <script>
