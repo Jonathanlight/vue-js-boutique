@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { eventBus } from '../../main.js'
+import { eventBus } from '../../../../main.js'
 
 // {...object} decomposition de l'objet pour avoir une copie parfaite avec tout les clés
 

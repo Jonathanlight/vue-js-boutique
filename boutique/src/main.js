@@ -27,7 +27,8 @@ export const eventBus = new Vue({
                 price: 2300,
             }
         ],
-        cart: []
+        cart: [],
+        page: 'Admin',
     },
     methods: {
         addProductToCart(product) {
@@ -39,6 +40,14 @@ export const eventBus = new Vue({
         removeItemFormCart(item) {
             this.cart = this.cart.slice().filter(i => i.id !== item.id);
             this.$emit('update:cart', this.cart.slice());
+        },
+        changePage(page) {
+            this.page = page;
+            this.$emit('update:page', this.page);
+        },
+        addProduct(product) {
+            this.products = [...this.products, {...product, id: this.products.length + 1 + '' }];
+            this.$emit('update:products', this.products);
         }
     },
 });

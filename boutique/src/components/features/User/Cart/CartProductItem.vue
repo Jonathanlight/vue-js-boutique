@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { eventBus } from '../../main.js'
+import { eventBus } from '../../../../main'
 
 export default {
   props: ['cart_item'],
