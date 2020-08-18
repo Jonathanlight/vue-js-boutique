@@ -13,7 +13,7 @@
     </div>
 
     <div>
-      <span class="font-weight-bold h4"> {{ product.price }} </span>
+      <span class="font-weight-bold h4"> {{ product.price | price }} </span>
       <button @click="addProductToCart" class="btn btn-primary btn-sm float-right"> <i class="fa fa-user"></i> Commander </button>
     </div>
   </div>

@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
+import * as Filters from './utils/filters.js'
 
 Vue.config.productionTip = false
+
+Object.keys(Filters).forEach((f) => {
+    Vue.filter(f, Filters[f]);
+})
 
 export const eventBus = new Vue({
     data: {
@@ -28,7 +33,7 @@ export const eventBus = new Vue({
             }
         ],
         cart: [],
-        page: 'Admin',
+        page: 'User',
     },
     methods: {
         addProductToCart(product) {
