@@ -3,22 +3,22 @@
     <h4>Ajouter un produit :</h4>
     <hr class="w-100" />
 
-    <div class="form-group"> 
+    <div class="form-group">
       <label>  </label>
       <input type="name" v-model.lazy="form.title" name="" id="" class="form-control" placeholder="Nom du Produit" />
     </div>
 
-    <div class="form-group"> 
+    <div class="form-group">
       <label>  </label>
       <textarea name="" v-model.lazy="form.description" id="" class="form-control" placeholder="Description du Produit"></textarea>
     </div>
 
-    <div class="form-group"> 
+    <div class="form-group">
       <label>  </label>
       <input type="number" v-model.number.lazy="form.price" min="0.00" max="10000.00" step="0.01" name="" id="" class="form-control" placeholder="Prix du Produit" />
     </div>
 
-    <div class="form-group"> 
+    <div class="form-group">
       <label>  </label>
       <input type="text" v-model="form.img" name="" id="" class="form-control" placeholder="Image du Produit" />
     </div>
@@ -27,7 +27,7 @@
         <li v-for="error in errors" :key="error"> {{ error }} </li>
       </ul>
 
-    <div class="form-group"> 
+    <div class="form-group">
       <button class="btn btn-primary btn-block" type="submit"> Ajouter </button>
     </div>
 
@@ -54,12 +54,12 @@ export default {
   methods: {
     submitForm(event) {
       event.preventDefault();
-      
+
       this.formIsValid().then( () => {
         eventBus.addProduct({...this.form});
         this.resetForm();
 
-        eventBus.changePage('User');
+        this.$router.push('/shop');
       }).catch( () => {
         console.log( this.errors )
       } )
@@ -98,7 +98,7 @@ export default {
 
           this.errors.length ? reject('ko') : resolve('ok');
         }, 500 )
-        
+
       } );
 
     }
