@@ -14,22 +14,21 @@
 
     <div>
       <span class="font-weight-bold h4"> {{ product.price | price }} </span>
-      <button @click="addProductToCart" class="btn btn-primary btn-sm float-right"> <i class="fa fa-user"></i> Commander </button>
+      <button @click="addOne(product)" class="btn btn-primary btn-sm float-right"> <i class="fa fa-user"></i> Commander </button>
     </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from '../../../../main.js'
-
+import { mapMutations } from 'vuex';
 // {...object} decomposition de l'objet pour avoir une copie parfaite avec tout les clés
 
 export default {
   props: [ 'product' ],
   methods: {
-    addProductToCart(){
-      eventBus.addProductToCart({...this.product});
-    }
+    ...mapMutations('cart', [
+      'addOne'
+    ])
   },
 }
 </script>

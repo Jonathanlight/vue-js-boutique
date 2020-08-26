@@ -30,15 +30,10 @@
     <div class="form-group">
       <button class="btn btn-primary btn-block" type="submit"> Ajouter </button>
     </div>
-
-    <pre> {{ form }} </pre>
-
   </form>
 </template>
 
 <script>
-import { eventBus } from '../../../main';
-
 export default {
   data() {
     return {
@@ -56,9 +51,8 @@ export default {
       event.preventDefault();
 
       this.formIsValid().then( () => {
-        eventBus.addProduct({...this.form});
+        this.$store.dispatch('product/saveOne', {...this.form});
         this.resetForm();
-
         this.$router.push('/shop');
       }).catch( () => {
         console.log( this.errors )

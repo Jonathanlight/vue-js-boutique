@@ -3,24 +3,14 @@
 </template>
 
 <script>
-import ShopProductsList from '../Shop/ShopProductsList.vue'
-import { eventBus } from '../../../../main.js'
+import ShopProductsList from '../Shop/ShopProductsList.vue';
+
 
 export default {
   name: 'Shop',
+  props: ['products'],
   components: {
     ShopProductsList
-  },
-  data(){
-    return {
-      products: []
-    }
-  },
-  created(){
-    this.products = eventBus.products;
-    eventBus.$on('update:products', (products) => {
-      this.products = products;
-    })
   }
 }
 </script>
